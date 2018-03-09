@@ -1,0 +1,10 @@
+type User {
+  id: ID!
+  name: String!
+  posts: [Post]
+}
+
+type Query {
+  user(id: ID!): User
+  allUsers: [User]
+}
