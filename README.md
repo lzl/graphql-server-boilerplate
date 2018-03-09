@@ -1,4 +1,4 @@
-# React App Boilerplate
+# GraphQL Server Boilerplate
 
 ## Try
 
