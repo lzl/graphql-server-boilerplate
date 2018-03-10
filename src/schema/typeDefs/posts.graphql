@@ -6,9 +6,9 @@ type Post {
 
 type Query {
   post(id: ID!): Post
-  allPosts: [Post]
+  allPosts: [Post] @isAuthenticated
 }
 
 type Mutation {
-  addPost(text: String!): Post
+  addPost(text: String!): Post @hasScope(scope: ["add:post"])
 }

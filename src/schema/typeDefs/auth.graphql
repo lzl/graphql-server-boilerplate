@@ -1,0 +1,3 @@
+directive @isAuthenticated on QUERY | FIELD
+
+directive @hasScope(scope: [String]) on QUERY | FIELD

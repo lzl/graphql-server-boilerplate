@@ -1,3 +1,4 @@
+require('dotenv').config()
 import express from 'express'
 import cors from 'cors'
 import compression from 'compression'
@@ -16,7 +17,7 @@ graphQLServer.use(compression())
 graphQLServer.use(
   '/graphql',
   bodyParser.json(),
-  graphqlExpress(req => ({ schema, context: { req } }))
+  graphqlExpress(({ headers }) => ({ schema, context: { headers } }))
 )
 graphQLServer.use('/graphiql', graphiqlExpress({ endpointURL: '/graphql' }))
 

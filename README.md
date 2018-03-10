@@ -8,6 +8,10 @@
 yarn
 ```
 
+### Set env!
+
+Change .env.example file then rename it to .env
+
 ### Go dev!
 
 ```bash
@@ -27,6 +31,6 @@ The `package.json` file will be your best friend.
 
 ### Related
 
-- [React App Boilerplate](https://github.com/lzl/react-app-boilerplate)
-- [REST API Boilerplate](https://github.com/lzl/rest-api-boilerplate)
-- [Modern Meteor Boilerplate](https://github.com/lzl/modern-meteor-boilerplate)
+* [React App Boilerplate](https://github.com/lzl/react-app-boilerplate)
+* [REST API Boilerplate](https://github.com/lzl/rest-api-boilerplate)
+* [Modern Meteor Boilerplate](https://github.com/lzl/modern-meteor-boilerplate)

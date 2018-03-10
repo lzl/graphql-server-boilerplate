@@ -17,11 +17,7 @@ export default {
       return null
     },
     allPosts(_, args, ctx) {
-      const { authorization } = ctx.req.headers
-      if (authorization) {
-        const token = authorization.replace('Bearer ', '')
-        console.log('token:', token)
-      }
+      // console.log(ctx)
       return Posts
     },
   },
