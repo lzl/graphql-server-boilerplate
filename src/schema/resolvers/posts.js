@@ -16,8 +16,7 @@ export default {
     post() {
       return null
     },
-    allPosts(_, args, ctx) {
-      // console.log(ctx)
+    allPosts() {
       return Posts
     },
   },

@@ -1,3 +1,12 @@
 directive @isAuthenticated on QUERY | FIELD
 
 directive @hasScope(scope: [String]) on QUERY | FIELD
+
+type Auth {
+  token: String!
+}
+
+type Mutation {
+  signup(username: String!, password: String): Auth
+  login(username: String!, password: String): Auth
+}

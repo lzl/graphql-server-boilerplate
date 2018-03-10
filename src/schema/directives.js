@@ -28,7 +28,6 @@ const directiveResolvers = {
   },
   hasScope: (next, source, args, context) => {
     const token = context.headers.authorization
-    console.log('hasScope:', token)
     const expectedScopes = args.scope
     if (!token) {
       throw new AuthorizationError({

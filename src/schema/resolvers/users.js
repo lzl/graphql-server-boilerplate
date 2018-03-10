@@ -1,5 +1,8 @@
 export default {
   Query: {
+    me(_, args, ctx) {
+      return ctx.user
+    },
     user() {
       return null
     },
