@@ -19,13 +19,23 @@ export default {
       const hashedPassword = bcrypt.hashSync(password)
       Users.push({ username, password: hashedPassword })
 
-      const token = jwt.sign({ username }, process.env.JWT_SECRET)
+      const token = jwt.sign(
+        { username, scope: 'add:post' },
+        process.env.JWT_SECRET
+      )
       return { token }
     },
     login(root, params, context) {
       const { username, password } = params
-      const user = Users.find(u => u.username === username)
-      const { password: hashedPassword } = user
+      const foundUser = Users.find(u => u.username === username)
+
+      if (!foundUser) {
+        throw new AuthorizationError({
+          message: 'Invalid username or password.',
+        })
+      }
+
+      const { password: hashedPassword } = foundUser
       const isValid = bcrypt.compareSync(password, hashedPassword)
 
       if (!isValid) {
@@ -34,7 +44,10 @@ export default {
         })
       }
 
-      const token = jwt.sign({ username }, process.env.JWT_SECRET)
+      const token = jwt.sign(
+        { username, scope: 'add:post' },
+        process.env.JWT_SECRET
+      )
       return { token }
     },
   },

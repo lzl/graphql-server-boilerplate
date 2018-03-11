@@ -6,7 +6,7 @@ type Post {
 
 type Query {
   post(id: ID!): Post
-  allPosts: [Post] @isAuthenticated
+  allPosts: [Post]
 }
 
 type Mutation {
