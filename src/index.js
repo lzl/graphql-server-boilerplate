@@ -4,6 +4,7 @@ import cors from 'cors'
 import compression from 'compression'
 import bodyParser from 'body-parser'
 import { graphqlExpress, graphiqlExpress } from 'apollo-server-express'
+import { formatError } from 'apollo-errors'
 
 import schema from './schema'
 
@@ -16,7 +17,11 @@ graphQLServer.use(compression())
 graphQLServer.use(
   '/graphql',
   bodyParser.json(),
-  graphqlExpress(({ headers }) => ({ schema, context: { headers } }))
+  graphqlExpress(({ headers }) => ({
+    formatError,
+    schema,
+    context: { headers },
+  }))
 )
 graphQLServer.use('/graphiql', graphiqlExpress({ endpointURL: '/graphql' }))
 
